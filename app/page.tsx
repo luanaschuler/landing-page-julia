@@ -18,23 +18,23 @@ import { motion } from "framer-motion";
 
 const photos = [
   {
-    src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700",
-    location: "Dolomitas, Itália",
+    id: 1,
+    src: "/data/mosaico2.jpg",
     rotate: "-8deg",
   },
   {
-    src: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=700",
-    location: "Cinque Terre",
+    id: 2,
+    src: "/data/mosaico1.jpg",
     rotate: "5deg",
   },
   {
-    src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=700",
-    location: "Alpes",
+    id: 3,
+    src: "/data/mosaico4.jpg",
     rotate: "-4deg",
   },
   {
-    src: "https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=700",
-    location: "Novos horizontes",
+    id: 4,
+    src: "/data/mosaico3.jpg",
     rotate: "8deg",
   },
 ];
@@ -99,11 +99,15 @@ export default function Home() {
 
       <header className="absolute top-0 z-50 w-full px-5 md:px-12 py-5">
         <nav className="mx-auto flex max-w-7xl items-center justify-between">
-          <a
-            href="#inicio"
-            className="display-font text-3xl font-black text-[#FDEBE1]"
-          >
-            Júlia<span className="text-[#B4552D]">.</span>
+          <a href="#inicio" className="flex items-center">
+            <Image
+              src="/data/logo-julia.png"
+              alt="Logo Júlia"
+              width={400}
+              height={100}
+              priority
+              className="h-32 w-auto object-contain"
+            />
           </a>
 
           <div className="hidden items-center gap-8 rounded-full border border-white/20 bg-[#1C1E1A]/70 px-8 py-4 text-xs font-bold uppercase tracking-wider text-[#FDEBE1] backdrop-blur-md md:flex">
@@ -142,12 +146,24 @@ export default function Home() {
 
         <div className="absolute left-[-100px] top-[480px] h-72 w-72 rotate-45 bg-[#3B4A3A]" />
 
-        <div className="absolute right-[10%] top-[180px] text-[100px] text-[#FDEBE1]">
-          ✳
+        <div className="absolute right-[10%] top-[180px]">
+          <Image
+            src="/data/bussulaverde.png"
+            alt="Elemento decorativo"
+            width={150}
+            height={150}
+            className="h-32 w-32 object-contain"
+          />
         </div>
 
         <div className="absolute bottom-10 right-10 hidden text-8xl text-[#FDEBE1] md:block">
-          +
+          <Image
+            src="/data/terraverde.png"
+            alt="Elemento decorativo"
+            width={100}
+            height={100}
+            className="h-54 w-54 object-contain"
+          />
         </div>
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-2">
@@ -163,7 +179,7 @@ export default function Home() {
 
             <div className="relative z-10 h-[520px] overflow-hidden rounded-t-full border-[12px] border-[#FDEBE1]">
               <Image
-                src="/data/julia-hero.jpg"
+                src="/data/juliacapa.jpg"
                 alt="Retrato da Júlia"
                 fill
                 priority
@@ -193,8 +209,8 @@ export default function Home() {
             </p>
 
             <h1 className="display-font text-[clamp(5rem,12vw,10rem)] font-black leading-[.78] tracking-[-.07em]">
-              Oiiieee!
-              <span className="block text-[#3B4A3A]">galerinhaa</span>
+              Oiiieee
+              <span className="block text-[#3B4A3A]">galerinhaa!</span>
             </h1>
 
             <div className="mt-10 max-w-md border-l-4 border-[#3B4A3A] pl-6">
@@ -210,18 +226,7 @@ export default function Home() {
                   sabia que o mundo era grande demais para ficar parada em um só
                   lugar. Aos vinte e poucos anos, decidi construir minha
                   carreira sem abrir mão da liberdade meu objetivo sempre foi
-                  viver em movimento por esse ponto azul chamado Terra. (emoji
-                  da terra)
-                </span>
-                <span className="block mt-2">
-                  <span className="block mt-2">
-                    Nasci e cresci em Blumenau, Santa Catarina, mas desde cedo
-                    sabia que o mundo era grande demais para ficar parada em um
-                    só lugar. Aos vinte e poucos anos, decidi construir minha
-                    carreira sem abrir mão da liberdade meu objetivo sempre foi
-                    viver em movimento por esse ponto azul chamado Terra. (emoji
-                    da terra)
-                  </span>
+                  viver em movimento por esse ponto azul chamado Terra 🌍
                 </span>
                 <span className="block mt-2">
                   O que torna essa jornada possível é a minha paixão por criar.
@@ -247,10 +252,10 @@ export default function Home() {
 
         {/* POLAROID MOSAIC */}
 
-        <div className="relative z-20 mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-5 pb-24 md:grid-cols-4 md:gap-8">
+        <div className="relative z-20 mx-auto mt-16 grid w-full max-w-6xl grid-cols-1 gap-10 px-6 pb-24 sm:grid-cols-2 sm:gap-8 md:gap-10 lg:grid-cols-4">
           {photos.map((photo, index) => (
             <motion.div
-              key={photo.location}
+              key={photo.id}
               initial={{ opacity: 0, y: 60, rotate: 0 }}
               whileInView={{
                 opacity: 1,
@@ -259,22 +264,22 @@ export default function Home() {
               }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.7 }}
-              whileHover={{ scale: 1.08, rotate: 0, zIndex: 30 }}
-              className="polaroid relative"
+              whileHover={{
+                scale: 1.06,
+                rotate: 0,
+                zIndex: 30,
+              }}
+              className="polaroid relative mx-auto w-full max-w-[340px] sm:max-w-none"
             >
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-[4/5] w-full overflow-hidden">
                 <Image
                   src={photo.src}
-                  alt={photo.location}
+                  alt={`Foto ${photo.id}`}
                   fill
-                  sizes="(max-width: 768px) 45vw, 220px"
+                  sizes="(max-width: 640px) 85vw, (max-width: 1024px) 42vw, 280px"
                   className="object-cover"
                 />
               </div>
-
-              <p className="absolute bottom-2 left-0 w-full text-center font-serif text-xs italic text-[#1C1E1A]">
-                {photo.location}
-              </p>
             </motion.div>
           ))}
         </div>
@@ -373,7 +378,13 @@ export default function Home() {
         </div>
 
         <div className="absolute right-10 top-12 hidden text-8xl text-[#B4552D] md:block">
-          ✳
+          <Image
+            src="/data/pinglocalizacao.png"
+            alt="Elemento decorativo"
+            width={100}
+            height={100}
+            className="h-32 w-32 object-contain"
+          />
         </div>
       </section>
 
@@ -478,11 +489,19 @@ export default function Home() {
           <div className="relative flex min-h-[350px] items-center justify-center">
             <div className="absolute h-72 w-72 rounded-full border-[2px] border-[#FDEBE1]/50 md:h-96 md:w-96" />
 
-            <div className="absolute h-60 w-60 rotate-12 rounded-full bg-[#3B4A3A] md:h-80 md:w-80" />
+            <div className="absolute h-60 w-60 rotate-12 rounded-full md:h-80 md:w-80" />
 
-            <Globe2
+            {/* <Globe2
               className="relative z-10 h-48 w-48 text-[#FDEBE1] md:h-64 md:w-64"
               strokeWidth={0.8}
+            /> */}
+
+            <Image
+              src="/data/terraverde.png"
+              alt="Elemento decorativo"
+              width={100}
+              height={100}
+              className="h-54 w-54 object-contain"
             />
 
             <span className="absolute right-5 top-0 rotate-12 text-7xl text-[#1C1E1A]">
@@ -490,7 +509,7 @@ export default function Home() {
             </span>
 
             <span className="hand-font absolute bottom-4 left-0 z-20 -rotate-12 text-2xl">
-              the world is ours!
+              o mundo é nosso!
             </span>
           </div>
         </div>
