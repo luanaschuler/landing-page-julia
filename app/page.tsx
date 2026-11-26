@@ -242,6 +242,12 @@ export default function Home() {
                   viver em movimento por esse ponto azul chamado Terra 🌍
                 </span>
                 <span className="block mt-2">
+                  Eu não fazia ideia de como isso aconteceria, só tinha uma
+                  certeza: eu viveria viajando. E, como o universo sempre dá uma
+                  forcinha para quem tem coragem, me joguei nessa sem rota
+                  definida e sem data de volta.
+                </span>
+                <span className="block mt-2">
                   O que torna essa jornada possível é a minha paixão por criar.
                   Há 5 anos trabalho desenvolvendo marcas pessoais, artes
                   digitais e conteúdos estratégicos. Depois de muito estudo e
@@ -258,7 +264,7 @@ export default function Home() {
               href="#portfolio"
               className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#1C1E1A] px-7 py-4 text-sm font-bold text-[#FDEBE1] transition hover:bg-[#3B4A3A]"
             >
-              Conheça meu trabalho <ArrowUpRight size={18} />
+              Dá uma olhadinha no meu trabalho <ArrowUpRight size={18} />
             </a>
           </motion.div>
         </div>
@@ -320,10 +326,40 @@ export default function Home() {
             </div>
 
             <p className="max-w-xs text-sm leading-7 text-[#FDEBE1]/75">
-              Ideias, imagens e projetos que nasceram de um olhar curioso sobre
-              o mundo.
+              Além de criadora de conteúdo e nômade, eu faço algumas artes e
+              desenvolvo identidade visual
             </p>
           </div>
+
+          {/* VIDEO DO YOUTUBE */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="mx-auto mb-20 w-full max-w-5xl px-6"
+          >
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[#3B4A3A]">
+                Um pouco do meu trabalho
+              </span>
+            </div>
+
+            <div className="relative aspect-video overflow-hidden rounded-2xl border-[6px] border-[#B4552D] bg-[#1C1E1A] shadow-xl">
+              <iframe
+                src="https://www.youtube.com/embed/--5vgDfwZiw"
+                title="Vídeo do portfólio"
+                className="absolute inset-0 h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
+
+            <p className="mt-4 text-center text-sm italic text-[#3B4A3A]/80">
+              Histórias, experiências e momentos que merecem ser compartilhados.
+            </p>
+          </motion.div>
 
           {/* Book */}
 
