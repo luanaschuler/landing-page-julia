@@ -38,36 +38,32 @@ const photos = [
   },
 ];
 
+
 const projects = [
   {
     number: "01",
     title: "Identidade visual",
     category: "Branding & Design",
     description: "Construindo identidades que contam histórias.",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900",
+    images: [
+      "/portfolio/1-1.png",
+      "/portfolio/1-2.png",
+      "/portfolio/1-3.png",
+    ],
   },
   {
     number: "02",
     title: "Diário visual",
     category: "Fotografia & Conteúdo",
     description: "Memórias transformadas em experiências visuais.",
-    image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900",
-  },
-  {
-    number: "02",
-    title: "Diário visual",
-    category: "Fotografia & Conteúdo",
-    description: "Memórias transformadas em experiências visuais.",
-    image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900",
-  },
-  {
-    number: "02",
-    title: "Diário visual",
-    category: "Fotografia & Conteúdo",
-    description: "Memórias transformadas em experiências visuais.",
-    image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900",
+    images: [
+      "/portfolio/2-1.png",
+      "/portfolio/2-2.png",
+      "/portfolio/2-3.png",
+    ],
   },
 ];
+
 
 
 const feedbacks = [
@@ -103,6 +99,155 @@ const fadeUp = {
     transition: { duration: 0.7 },
   },
 };
+
+
+const muralCases = [
+  {
+    id: "03",
+    client: "Projeto / Cliente 03",
+    category: "Social media • Direção criativa",
+    description:
+      "Uma identidade visual que traduz a essência e personalidade da marca.",
+    background: "bg-[#E8B99D]",
+    textColor: "text-[#3B4A3A]",
+    posts: [
+      "/portfolio/3-1.png",
+      "/portfolio/3-2.png",
+      "/portfolio/3-3.png",
+    ],
+  },
+  {
+    id: "04",
+    client: "Projeto / Cliente 04",
+    category: "Social media • Design",
+    description:
+      "Conteúdo visual desenvolvido para criar conexão e reconhecimento.",
+    background: "bg-[#B4552D]",
+    textColor: "text-[#FDEBE1]",
+    posts: [
+      "/portfolio/4-1.png",
+      "/portfolio/4-2.png",
+      "/portfolio/4-3.png",
+    ],
+  },
+];
+
+function CreativeMural() {
+  return (
+    <div className="mt-28">
+      <div className="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+        <div>
+          <p className="section-label mb-4 text-[#B4552D]">
+            02 / Outras histórias
+          </p>
+
+          <h3 className="display-font text-5xl font-black leading-[.9] text-[#FDEBE1] md:text-7xl">
+            Creative
+            <br />
+            playground<span className="text-[#B4552D]">.</span>
+          </h3>
+        </div>
+
+        <p className="max-w-xs text-sm leading-7 text-[#B4552D]">
+          Um recorte de ideias, experimentações e identidades que ganharam forma
+          através do design.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8">
+        {muralCases.map((item, index) => (
+          <motion.article
+            key={item.id}
+            initial={{ opacity: 0, y: 45 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, delay: index * 0.15 }}
+            className={`${item.background} ${item.textColor} relative p-5 md:p-7`}
+          >
+            {/* Identificação */}
+            <div className="mb-6 flex items-start justify-between gap-4">
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-[.2em] opacity-60">
+                  Selected work / {item.id}
+                </span>
+
+                <h4 className="display-font mt-2 text-3xl font-black md:text-4xl">
+                  {item.client}
+                </h4>
+
+                <p className="mt-2 text-xs uppercase tracking-wider opacity-70">
+                  {item.category}
+                </p>
+              </div>
+
+              <span className="display-font text-5xl font-black opacity-20">
+                {item.id}
+              </span>
+            </div>
+
+            {/* Mural de posts */}
+            <div className="grid grid-cols-12 grid-rows-2 gap-3">
+              {/* Peça principal */}
+              <motion.div
+                whileHover={{ rotate: 0, scale: 1.025 }}
+                className="relative col-span-7 row-span-2 aspect-[4/5] rotate-[-2deg] overflow-hidden bg-white shadow-xl"
+              >
+                <Image
+                  src={item.posts[0]}
+                  alt={`${item.client} - peça principal`}
+                  fill
+                  sizes="(max-width: 1024px) 60vw, 30vw"
+                  className="object-cover"
+                />
+              </motion.div>
+
+              {/* Peça complementar 1 */}
+              <motion.div
+                whileHover={{ rotate: 0, scale: 1.04 }}
+                className="relative col-span-5 aspect-square rotate-[3deg] overflow-hidden bg-white shadow-lg"
+              >
+                <Image
+                  src={item.posts[1]}
+                  alt={`${item.client} - peça complementar 1`}
+                  fill
+                  sizes="(max-width: 1024px) 40vw, 20vw"
+                  className="object-cover"
+                />
+              </motion.div>
+
+              {/* Peça complementar 2 */}
+              <motion.div
+                whileHover={{ rotate: 0, scale: 1.04 }}
+                className="relative col-span-5 aspect-square rotate-[-3deg] overflow-hidden bg-white shadow-lg"
+              >
+                <Image
+                  src={item.posts[2]}
+                  alt={`${item.client} - peça complementar 2`}
+                  fill
+                  sizes="(max-width: 1024px) 40vw, 20vw"
+                  className="object-cover"
+                />
+              </motion.div>
+            </div>
+
+            {/* Descrição */}
+            <div className="mt-8 flex items-end justify-between gap-4">
+              <p className="max-w-xs text-sm leading-6 opacity-80">
+                {item.description}
+              </p>
+
+              <span className="shrink-0 text-2xl">✳</span>
+            </div>
+
+            {/* Detalhe decorativo */}
+            <div className="absolute -bottom-3 -right-3 h-8 w-8 rounded-full border-[6px] border-[#FDEBE1]" />
+          </motion.article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 
 export default function Home() {
   return (
@@ -339,7 +484,7 @@ export default function Home() {
             className="mx-auto mb-20 w-full max-w-5xl px-6"
           >
             <div className="mb-5 flex items-center justify-between gap-4">
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[#3B4A3A]">
+              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FDEBE1]">
                 Um pouco do meu trabalho
               </span>
             </div>
@@ -355,7 +500,7 @@ export default function Home() {
               />
             </div>
 
-            <p className="mt-4 text-center text-sm italic text-[#3B4A3A]/80">
+            <p className="mt-4 text-center text-sm italic text-[#FDEBE1]/80">
               Histórias, experiências e momentos que merecem ser compartilhados.
             </p>
           </motion.div>
@@ -369,17 +514,19 @@ export default function Home() {
               {projects.map((project, index) => (
                 <div
                   key={project.number}
-                  className={`book-page relative flex min-h-[530px] flex-col p-7 md:p-12 ${
+                  className={`book-page relative flex min-h-[650px] flex-col p-7 md:p-9 lg:p-12 ${
                     index === 0 ? "md:border-r border-[#B4552D]/20" : ""
                   }`}
                 >
-                  <div className="mb-8 flex justify-between">
+                  {/* Cabeçalho */}
+                  <div className="mb-6 flex justify-between">
                     <span className="section-label text-[#B4552D]">
                       PROJETO / {project.number}
                     </span>
                     <Sparkles className="text-[#B4552D]" />
                   </div>
 
+                  {/* Informações do projeto */}
                   <h3 className="display-font max-w-sm text-4xl font-black leading-tight md:text-5xl">
                     {project.title}
                   </h3>
@@ -388,41 +535,64 @@ export default function Home() {
                     {project.category}
                   </p>
 
-                  <p className="mt-5 max-w-xs text-sm leading-6 text-[#1C1E1A]/70">
+                  <p className="mt-4 max-w-xs text-sm leading-6 text-[#1C1E1A]/70">
                     {project.description}
                   </p>
 
-                  <div className="relative mt-8 min-h-[220px] flex-1 overflow-hidden border-[8px] border-white shadow-lg">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 90vw, 500px"
-                      className="object-cover transition duration-700 hover:scale-110"
-                    />
+                  {/* Composição das três imagens */}
+                  <div className="mt-8 grid flex-1 grid-cols-12 gap-3">
+                    {/* Imagem principal */}
+                    <div className="relative col-span-7 min-h-[280px] overflow-hidden border-[6px] border-white bg-white shadow-lg">
+                      <Image
+                        src={project.images[0]}
+                        alt={`${project.title} - imagem principal`}
+                        fill
+                        sizes="(max-width: 768px) 55vw, 230px"
+                        className="object-cover transition duration-700 hover:scale-110"
+                      />
+                    </div>
+
+                    {/* Imagens complementares */}
+                    <div className="col-span-5 flex flex-col gap-3">
+                      {project.images.slice(1, 3).map((image, imageIndex) => (
+                        <div
+                          key={image}
+                          className="relative min-h-[130px] flex-1 overflow-hidden border-[6px] border-white bg-white shadow-lg"
+                        >
+                          <Image
+                            src={image}
+                            alt={`${project.title} - imagem ${imageIndex + 2}`}
+                            fill
+                            sizes="(max-width: 768px) 35vw, 160px"
+                            className="object-cover transition duration-700 hover:scale-110"
+                          />
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
-                  <span className="mt-5 text-right font-serif text-xs italic text-[#3B4A3A]">
+                  {/* Rodapé */}
+                  <span className="mt-6 text-right font-serif text-xs italic text-[#3B4A3A]">
                     Júlia — creative archive
                   </span>
                 </div>
               ))}
             </div>
-
-            {/* Book spine */}
-
-            <div className="absolute left-1/2 top-0 hidden h-full w-[3px] -translate-x-1/2 bg-[#B4552D]/30 md:block" />
           </div>
 
-          <div className="mt-14 flex justify-center">
-            <a
-              href="#contato"
-              className="group flex items-center gap-4 rounded-full bg-[#B4552D] px-9 py-5 text-sm font-bold uppercase tracking-wider text-[#FDEBE1] transition hover:bg-[#FDEBE1] hover:text-[#1C1E1A]"
-            >
-              Vamos criar juntos?
-              <ArrowUpRight className="transition group-hover:rotate-45" />
-            </a>
-          </div>
+          {/* Book spine */}
+
+          <div className="absolute left-1/2 top-0 hidden h-full w-[3px] -translate-x-1/2 bg-[#B4552D]/30 md:block" />
+        </div>
+
+        <div className="mt-14 flex justify-center">
+          <a
+            href="#contato"
+            className="group flex items-center gap-4 rounded-full bg-[#B4552D] px-9 py-5 text-sm font-bold uppercase tracking-wider text-[#FDEBE1] transition hover:bg-[#FDEBE1] hover:text-[#1C1E1A]"
+          >
+            Vamos criar juntos?
+            <ArrowUpRight className="transition group-hover:rotate-45" />
+          </a>
         </div>
 
         <div className="absolute right-10 top-12 hidden text-8xl text-[#B4552D] md:block">
@@ -434,6 +604,7 @@ export default function Home() {
             className="h-32 w-32 object-contain"
           />
         </div>
+        <CreativeMural />
         <div className="absolute bottom-0 left-0 h-5 w-full bg-[#B4552D]" />
       </section>
 
