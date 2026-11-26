@@ -6,7 +6,6 @@ import {
   Music2,
   ArrowUpRight,
   Heart,
-  Globe2,
   Sparkles,
   Camera,
   HandHeart,
@@ -19,7 +18,7 @@ import { motion } from "framer-motion";
 const photos = [
   {
     id: 1,
-    src: "/mosaico2.jpg",
+    src: "/mosaico2.JPG",
     rotate: "-8deg",
   },
   {
