@@ -8,7 +8,7 @@ import {
   Heart,
   Sparkles,
   Camera,
-  HandHeart,
+  SquarePlay,
   Mail,
   Plus,
 } from "lucide-react";
@@ -69,32 +69,31 @@ const projects = [
   },
 ];
 
+
 const feedbacks = [
   {
-    text: "A Júlia tem um olhar incrível! Conseguiu transformar nossa ideia em algo muito especial.",
-    author: "Marina S.",
-    color: "bg-[#B4552D] text-[#FDEBE1]",
-    size: "col-span-2",
+    author: "Bárbara Cardoso",
+    photo: "/barbara.png",
+    text: "Quando comecei com a Ju meu feed era uma catastrofe, engajamento, e imagem pessoal que eu trazia no perfil era tudo puro suco do caos. Depois que deixei nas mãos dela tudo flui lindamente, as artes são belissimas, conforme fomos criando mais intimidade a Ju pegou muito a ideia do negocio e hoje pessoal nem se acredita que não sou eu que crio tudo pq ela faz parecer bem do meu jeitinho, personalizado, meus pacientes relatam que gostam muito dos conteudos que são relevantes, que encaixa com as prioridades que tenho como marca no mercado. O impacto que eles tem pela arte e criação de conteudo da Ju realmente tornou relevante e me alivou uma carga ENORME de responsabilidade sobre fazer essa função, pra que eu pudesse destinar esse tempo que sobra pra ser uma profissional melhor e criar conteúdos mais proximos com eles de maneira mais espontânea. Sem duvida recomendo pra TODO mundo e insisto sempre na Ju pq é o melhor investimento que fiz nos ultimos 2 anos 💙",
+    color: "bg-[#E8B99D] text-[#3B4A3A]",
+    size: "md:col-span-2",
   },
   {
-    text: "Criatividade, sensibilidade e muito cuidado em cada detalhe.",
-    author: "Lucas T.",
+    author: "Pamela Beatriz",
+    photo: "/beatriz.png",
+    text: "Eu AMEI a paleta!! Sério, você conseguiu traduzir muito bem tudo o que conversamos no briefing. 🥹 As cores têm exatamente essa sensação que eu quero transmitir na minha marca: sofisticada, leve, natural, acolhedora e ao mesmo tempo com personalidade. Achei uma paleta muito elegante e que combina demais com a fase que estou vivendo profissionalmente e com o posicionamento que quero construir. Achei muito autêntico amei o símbolo, acho que super combina com a proposta da marca!  😍",
     color: "bg-[#3B4A3A] text-[#FDEBE1]",
-    size: "col-span-1",
+    size: "",
   },
   {
-    text: "Foi muito além do que eu imaginava. Um resultado cheio de personalidade!",
-    author: "Ana P.",
-    color: "bg-[#FDEBE1] text-[#1C1E1A]",
-    size: "col-span-1",
-  },
-  {
-    text: "Uma profissional incrível, criativa e sempre disposta a explorar novas ideias.",
-    author: "Fernanda G.",
-    color: "bg-[#1C1E1A] text-[#FDEBE1]",
-    size: "col-span-2",
+    author: "Luana Schüler",
+    photo: "/luana.JPEG",
+    text: "A Júlia é incrível! Ela entendeu muito a visão e a essência da minha futura marca. Dá pra ver que ela trabalha com o coração e alma. É lindo acompanhar isso. Super recomendo o trabalho dela.",
+    color: "bg-[#B4552D] text-[#FDEBE1]",
+    size: "",
   },
 ];
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },
@@ -435,6 +434,7 @@ export default function Home() {
             className="h-32 w-32 object-contain"
           />
         </div>
+        <div className="absolute bottom-0 left-0 h-5 w-full bg-[#B4552D]" />
       </section>
 
       {/* FEEDBACKS */}
@@ -460,40 +460,67 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
             {feedbacks.map((feedback, index) => (
               <motion.div
                 key={feedback.author}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 35, rotate: -1 }}
+                whileInView={{ opacity: 1, y: 0, rotate: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`${feedback.size} ${feedback.color} flex min-h-[210px] flex-col justify-between p-5 md:min-h-[260px] md:p-8`}
+                transition={{ delay: index * 0.12, duration: 0.6 }}
+                className={`
+        ${feedback.color}
+        ${index === 2 ? "md:col-start-2" : ""}
+        relative flex min-h-[280px] h-full flex-col justify-between
+        p-6 md:p-8
+      `}
               >
-                <span className="display-font text-5xl leading-none opacity-60">
-                  “
-                </span>
-
-                <p className="display-font text-lg font-bold leading-snug md:text-2xl">
-                  {feedback.text}
-                </p>
-
-                <div className="mt-5 flex items-center justify-between border-t border-current/30 pt-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest md:text-xs">
-                    {feedback.author}
+                <div>
+                  <span className="display-font text-5xl leading-none opacity-50">
+                    “
                   </span>
-                  <Plus size={16} />
+
+                  <p className="display-font mt-4 text-lg font-bold leading-snug md:text-xl lg:text-2xl">
+                    {feedback.text}
+                  </p>
+                </div>
+
+                <div className="mt-8 flex items-center gap-3 border-t border-current/25 pt-5">
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-current/30">
+                    <Image
+                      src={feedback.photo}
+                      alt={feedback.author}
+                      fill
+                      sizes="48px"
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="min-w-0">
+                    <p className="text-xs font-bold uppercase tracking-wider">
+                      {feedback.author}
+                    </p>
+                    <p className="mt-1 text-[10px] uppercase tracking-widest opacity-60">
+                      Depoimento
+                    </p>
+                  </div>
+
+                  <div className="ml-auto shrink-0">
+                    <Plus size={18} />
+                  </div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <div className="mt-8 flex justify-end">
+          <div className="mt-10 flex justify-end">
             <span className="hand-font rotate-[-5deg] text-xl text-[#B4552D]">
               obrigada pelo carinho! ♡
             </span>
           </div>
         </div>
+
+        <div className="absolute bottom-0 left-0 h-5 w-full bg-[#3B4A3A]" />
       </section>
 
       {/* APOIA-SE */}
@@ -603,21 +630,9 @@ export default function Home() {
                   Parcerias & colaborações
                 </span>
 
-                <div className="mt-6 grid grid-cols-2 gap-3">
-                  {[
-                    "Sua marca aqui",
-                    "Sua marca aqui",
-                    "Sua marca aqui",
-                    "Sua marca aqui",
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex min-h-20 items-center justify-center border border-[#FDEBE1]/20 p-4 text-center text-xs font-bold uppercase tracking-widest text-[#FDEBE1]/50 transition hover:border-[#B4552D] hover:text-[#FDEBE1]"
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
+                <span className="mt-5 block max-w-sm text-sm leading-7 text-[#FDEBE1]/65">
+                  Vem levar sua marca comigo pelo mundo
+                </span>
               </div>
 
               <div className="mt-12">
@@ -627,7 +642,7 @@ export default function Home() {
 
                 <div className="mt-5 flex gap-4">
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/juliadobranding/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
@@ -637,17 +652,17 @@ export default function Home() {
                   </a>
 
                   <a
-                    href="https://youtube.com"
+                    href="https://www.youtube.com/@eujuliadasilvasilva"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="YouTube"
                     className="rounded-full border border-[#FDEBE1]/30 p-4 transition hover:bg-[#B4552D]"
                   >
-                    <Camera />
+                    <SquarePlay />
                   </a>
 
                   <a
-                    href="https://tiktok.com"
+                    href="https://www.tiktok.com/@eujuliadasilvaasilva?is_from_webapp=1&sender_device=pc"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="TikTok"
@@ -668,9 +683,9 @@ export default function Home() {
             </span>
 
             <p className="hand-font text-2xl leading-relaxed text-[#FDEBE1] md:text-4xl">
-              Obrigada por fazer parte
-              <br />
-              dessa viagem. ♡
+              A pergunta que mudou o meu jogo foi:
+              <br />é melhor encarar o medo de tentar e errar, ou a frustração
+              de nunca ter saído do lugar? ♡
             </p>
 
             <p className="mt-6 text-xs font-bold uppercase tracking-[.3em] text-[#B4552D]">
@@ -683,8 +698,12 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col justify-between gap-3 border-t border-[#FDEBE1]/15 py-6 text-[10px] uppercase tracking-widest text-[#FDEBE1]/40 md:flex-row">
-            <span>© 2026 Júlia — Todos os direitos reservados</span>
-            <span>Feito com criatividade e vontade de explorar.</span>
+            <span>
+              © 2026 Júlia da Silva Silva — Todos os direitos reservados
+            </span>
+            <span>
+              Feito com criatividade e vontade de explorar por Luana Schüler.
+            </span>
           </div>
         </div>
       </footer>
