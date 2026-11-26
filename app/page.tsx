@@ -23,17 +23,17 @@ const photos = [
   },
   {
     id: 2,
-    src: "/mosaico1.jpg",
+    src: "/mosaico1.JPG",
     rotate: "5deg",
   },
   {
     id: 3,
-    src: "/mosaico4.jpg",
+    src: "/mosaico4.JPG",
     rotate: "-4deg",
   },
   {
     id: 4,
-    src: "/mosaico3.jpg",
+    src: "/mosaico3.JPG",
     rotate: "8deg",
   },
 ];
@@ -192,7 +192,7 @@ export default function Home() {
 
             <div className="relative z-10 h-[520px] overflow-hidden rounded-t-full border-[12px] border-[#FDEBE1]">
               <Image
-                src="/juliacapa.jpg"
+                src="/juliacapa.JPG"
                 alt="Retrato da Júlia"
                 fill
                 priority
