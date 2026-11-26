@@ -19,22 +19,22 @@ import { motion } from "framer-motion";
 const photos = [
   {
     id: 1,
-    src: "/data/mosaico2.jpg",
+    src: "/mosaico2.jpg",
     rotate: "-8deg",
   },
   {
     id: 2,
-    src: "/data/mosaico1.jpg",
+    src: "/mosaico1.jpg",
     rotate: "5deg",
   },
   {
     id: 3,
-    src: "/data/mosaico4.jpg",
+    src: "/mosaico4.jpg",
     rotate: "-4deg",
   },
   {
     id: 4,
-    src: "/data/mosaico3.jpg",
+    src: "/mosaico3.jpg",
     rotate: "8deg",
   },
 ];
@@ -46,6 +46,20 @@ const projects = [
     category: "Branding & Design",
     description: "Construindo identidades que contam histórias.",
     image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900",
+  },
+  {
+    number: "02",
+    title: "Diário visual",
+    category: "Fotografia & Conteúdo",
+    description: "Memórias transformadas em experiências visuais.",
+    image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900",
+  },
+  {
+    number: "02",
+    title: "Diário visual",
+    category: "Fotografia & Conteúdo",
+    description: "Memórias transformadas em experiências visuais.",
+    image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900",
   },
   {
     number: "02",
@@ -101,7 +115,7 @@ export default function Home() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between">
           <a href="#inicio" className="flex items-center">
             <Image
-              src="/data/logo-julia.png"
+              src="/logo-julia.png"
               alt="Logo Júlia"
               width={400}
               height={100}
@@ -148,7 +162,7 @@ export default function Home() {
 
         <div className="absolute right-[10%] top-[180px]">
           <Image
-            src="/data/bussulaverde.png"
+            src="/bussulaverde.png"
             alt="Elemento decorativo"
             width={150}
             height={150}
@@ -158,7 +172,7 @@ export default function Home() {
 
         <div className="absolute bottom-10 right-10 hidden text-8xl text-[#FDEBE1] md:block">
           <Image
-            src="/data/terraverde.png"
+            src="/terraverde.png"
             alt="Elemento decorativo"
             width={100}
             height={100}
@@ -179,7 +193,7 @@ export default function Home() {
 
             <div className="relative z-10 h-[520px] overflow-hidden rounded-t-full border-[12px] border-[#FDEBE1]">
               <Image
-                src="/data/juliacapa.jpg"
+                src="/juliacapa.jpg"
                 alt="Retrato da Júlia"
                 fill
                 priority
@@ -269,12 +283,12 @@ export default function Home() {
                 rotate: 0,
                 zIndex: 30,
               }}
-              className="polaroid relative mx-auto w-full max-w-[340px] sm:max-w-none"
+              className="polaroid relative mx-auto w-full max-w-85 sm:max-w-none"
             >
-              <div className="relative aspect-[4/5] w-full overflow-hidden">
+              <div className="relative aspect-4/5 w-full overflow-hidden">
                 <Image
                   src={photo.src}
-                  alt={`Foto ${photo.id}`}
+                  alt={photo.src}
                   fill
                   sizes="(max-width: 640px) 85vw, (max-width: 1024px) 42vw, 280px"
                   className="object-cover"
@@ -379,7 +393,7 @@ export default function Home() {
 
         <div className="absolute right-10 top-12 hidden text-8xl text-[#B4552D] md:block">
           <Image
-            src="/data/pinglocalizacao.png"
+            src="/pinglocalizacao.png"
             alt="Elemento decorativo"
             width={100}
             height={100}
@@ -497,7 +511,7 @@ export default function Home() {
             /> */}
 
             <Image
-              src="/data/terraverde.png"
+              src="/terraverde.png"
               alt="Elemento decorativo"
               width={100}
               height={100}
